@@ -2,10 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  min-height: 100vh;
+  height: 100%;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 @layer components {
   .input {
     @apply rounded-full border border-stone-200 px-4 py-2 text-sm transition-all duration-300 focus:outline-none focus:ring focus:ring-yellow-400 md:px-6 md:py-3;
   }
+
   .loader {
     width: 45px;
     aspect-ratio: 0.75;
@@ -43,5 +52,23 @@
         50% 50%,
         100% 100%;
     }
+  }
+}
+
+:root {
+  --vh: 100%;
+}
+
+body {
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    height: -webkit-fill-available;
+  }
+
+  body {
+    height: 100vh;
   }
 }
